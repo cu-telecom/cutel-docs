@@ -1,0 +1,40 @@
+site_name: CuDocs
+site_url: https://docs.cutel.net
+repo_url: https://github.com/squidfunk/mkdocs-material
+nav:
+  - Welcome: index.md
+  - Getting Started: getting_started.md
+  - Beginner's Guide: beginners-guide.md
+  - Services:
+    - services/telephones.md
+    - services/faxing.md
+    - services/bbs.md
+    - services/dial_up_internet.md
+    - services/viewdata.md
+    - services/dsl.md
+    - services/useful_numbers.md
+  - Technical:
+    - technical/wiring.md
+markdown_extensions:
+  - attr_list
+  - md_in_html
+theme:
+  name: material
+  logo: assets/logo-light.svg
+  favicon: assets/logo-dark.svg
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
