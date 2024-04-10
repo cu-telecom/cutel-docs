@@ -2,6 +2,8 @@
 
 The content that makes up [docs.cutel.net](https://docs.cutel.net)
 
+Built using [mkdocs](https://www.mkdocs.org/) with the [material](https://squidfunk.github.io/mkdocs-material/) theme.
+
 PRs accepted!
 
 # License
