@@ -8,6 +8,6 @@ If you want to make your own cables, sockets, or Network Termination Equipment, 
  - Note that the wiring scheme is T568A, however you can use the more common T568B - it's only the pinout that matters
 
 <figure markdown="span">
-  [![RJ45 Pinout](/images/CuTEL-RJ45-Standard-Trunk.png){ width="400" }](/images/CuTEL-RJ45-Standard-Trunk.png)
+  [![RJ45 Pinout](../images/CuTEL-RJ45-Standard-Trunk.png){ width="400" }](../images/CuTEL-RJ45-Standard-Trunk.png)
   <figcaption>RJ45 Pinout - Looking into socket</figcaption>
 </figure>

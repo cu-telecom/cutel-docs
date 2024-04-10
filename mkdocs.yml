@@ -1,10 +1,9 @@
 site_name: CuDocs
 site_url: https://docs.cutel.net
-repo_url: https://github.com/squidfunk/mkdocs-material
+repo_url: https://github.com/cu-telecom/cutel-docs
 nav:
   - Welcome: index.md
   - Getting Started: getting_started.md
-  - Beginner's Guide: beginners-guide.md
   - Services:
     - services/telephones.md
     - services/faxing.md
@@ -22,6 +21,10 @@ theme:
   name: material
   logo: assets/logo-light.svg
   favicon: assets/logo-dark.svg
+  features:
+    - toc.integrate
+    - navigation.top
+    - navigation.expand
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"

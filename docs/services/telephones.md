@@ -1,6 +1,6 @@
 # Telephones
 
-Once you have [activated](getting_started/#activating-your-line) your line you should be able to make and receive calls to other POTs and DECT users as well as applications.
+Once you have [activated](../getting_started.md#activating-your-line) your line you should be able to make and receive calls to other POTs and DECT users as well as applications.
 
 ## Features
 

@@ -2,7 +2,7 @@
 
 Welcome to the CuTEL Documentation! It mostly applies to the network that will be operating at [EMF Camp](https://www.emfcamp.org/) between May 30th – June 2nd 2024.
 
-If you're looking to get connected to the network see [Getting Started](/technical/getting_started)
+If you're looking to get connected to the network see [Getting Started](getting_started.md)
 
 ## What is CuTEL?
 
@@ -13,6 +13,6 @@ CuTEL is a tongue-in-cheek telco founded in 2021 to supply enthusiasts at hacker
 If you'd like us to come to your event please [get in touch](https://cutel.net/contact/)
 
 <figure markdown="span">
-  [![A Datenklo](/images/datenklo.jpg){ width="400" }](/images/datenklo.jpg)
+  [![A Datenklo](images/datenklo.jpg){ width="400" }](images/datenklo.jpg)
   <figcaption>A Datenklo with a CuTEL distribution point installed</figcaption>
 </figure>
