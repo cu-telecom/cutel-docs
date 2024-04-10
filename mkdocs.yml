@@ -28,3 +28,4 @@ theme:
     - toc.integrate
     - navigation.top
     - navigation.expand
+  custom_dir: ./overrides
