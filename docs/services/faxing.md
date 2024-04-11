@@ -4,16 +4,24 @@ Faxing is fully supported on calls between POTs users. It's less likely to work 
 
 ## Fax Services
 
-We offer a number of fax services. If you call the number from your fax machine they'll hang up, and send you a fax.
+We offer a number of fax services. 
+
+* **0000** - Fax2Fedi
+* **0000** - Telemessage
+
+If you call these number from your fax machine they'll hang up, and send you a fax:  
 
 * **0000** - NyanFax
 * **0000** - Sudoku
 * **0000** - Schedule
-* **0000** - Telemessage
 
 ## Create a fax!
 
 If you have a static PDF, or a script / URL that produces a dynamic PDF we can make it accesible to subscribers with fax machine - Please [get in touch!](https://cutel.net/contact/)
+
+## Fax2Fedi
+
+Send a fax to the Fediverse. Send your fax to 0000 and it'll get displayed on [@EMFFacsimile@mastodon.social](https://mastodon.social/@EMFFacsimile)
 
 ## Telemessage
 
