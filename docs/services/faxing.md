@@ -9,7 +9,16 @@ We offer a number of fax services. If you call the number from your fax machine 
 * **0000** - NyanFax
 * **0000** - Sudoku
 * **0000** - Schedule
+* **0000** - Telemessage
 
 ## Create a fax!
 
 If you have a static PDF, or a script / URL that produces a dynamic PDF we can make it accesible to subscribers with fax machine - Please [get in touch!](https://cutel.net/contact/)
+
+## Telemessage
+
+Send a fax to someone without a fax machine! Simply send a fax to 0000 and include the from/to address and it'll get delivered by the Sneakernet team. Don't forget to include your fax number in the from address.
+
+You can also call 0000 to get a template to make sending your message even easier.
+
+Don't forget to drop into the Sneakernet sorting office to help distribute some mail.
