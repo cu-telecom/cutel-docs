@@ -11,9 +11,13 @@ We offer a number of fax services. Click the links for more info:
 
 If you call these number from your fax machine they'll hang up, and send you a fax:  
 
+* **0000** - Test Page
 * **0000** - NyanFax
+* **0000** - Random XKCD
 * **0000** - Sudoku
 * **0000** - Schedule
+* **0000** - Weather (Simple)
+* **0000** - Weather (Chart)
 
 ## Create a fax!
 
