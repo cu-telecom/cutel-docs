@@ -4,10 +4,10 @@ Faxing is fully supported on calls between POTs users. It's less likely to work 
 
 ## Fax Services
 
-We offer a number of fax services. 
+We offer a number of fax services. Click the links for more info:  
 
-* **0000** - Fax2Fedi
-* **0000** - Telemessage
+* **0000** - [Fax2Fedi](#fax2fedi)
+* **0000** - [Telemessage](#telemessage)
 
 If you call these number from your fax machine they'll hang up, and send you a fax:  
 
