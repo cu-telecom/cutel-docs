@@ -7,7 +7,7 @@ nav:
   - Services:
     - services/telephones.md
     - services/faxing.md
-    - services/bbs.md
+    - services/bbss.md
     - services/dial_up_internet.md
     - services/viewdata.md
     - services/dsl.md
