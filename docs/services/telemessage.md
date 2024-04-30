@@ -19,10 +19,11 @@ A template is available to make sending Telemessages easier. It's laid out to ma
 
 ### Sending
 
-  1. Write who or where the message should be sent to. This would normally be a village name, location, or otherwise identifiable description. Including things like a DECT number can be helpful
-  2. Write who the message is from. Remember to include your name, village, and fax / DECT number
-  3. Send the fax to 903990
-  4. Your Telemessage will then be delivered by the Sneakernet team
+  1. Obtain the template from the previous section or a sheet of A4 paper
+  2. Write who or where the message should be sent to. This would normally be a village name, location, or otherwise identifiable description. Including things like a DECT number can be helpful
+  3. Write who the message is from. Remember to include your name, village, and fax / DECT number
+  4. Send the fax to 903990
+  5. Your Telemessage will then be delivered by the Sneakernet team
 
 ## Sending a Telemessage via post
 
