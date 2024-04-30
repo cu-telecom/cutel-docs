@@ -9,7 +9,7 @@ We offer a number of fax services:
 * **903981**: Echo Fax - Send a fax, and it'll echo it back
 * **903990**: [Telemessage](telemessage.md)
 * **903991**: [Telemessage Template](telemessage.md/#obtaining-the-template)
-* **903992**: Fax2Fedi - Send a fax and it'll get posted to [Mastodon](https://mastodon.social/@EMFFacsimile)
+* **903992**: Fax2Fedi - Send a fax and it'll get posted to [https://mastodon.social/@EMFFacsimile](https://mastodon.social/@EMFFacsimile)
 
 If you call these numbers from your fax machine and hang up once you've heard "Fax requested", they'll call you back with a fax:  
 
