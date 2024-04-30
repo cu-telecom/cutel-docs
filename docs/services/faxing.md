@@ -4,25 +4,25 @@ Faxing is fully supported on calls between POTs users. It's less likely to work 
 
 ## Fax Services
 
-We offer a number of fax services. Click the links for more info:  
+We offer a number of fax services:  
 
-* **0000** - [Fax2Fedi](#fax2fedi)
-* **0000** - [Telemessage](telemessage.md)
+* **903981**: Echo Fax - Send a fax, and it'll echo it back
+* **903990**: [Telemessage](telemessage.md)
+* **903991**: [Telemessage Template](telemessage.md/#obtaining-the-template)
+* **903992**: Fax2Fedi - Send a fax and it'll get posted to [Mastodon](https://mastodon.social/@EMFFacsimile)
 
-If you call these number from your fax machine they'll hang up, and send you a fax:  
+If you call these numbers from your fax machine and hang up once you've heard "Fax requested", they'll call you back with a fax:  
 
-* **0000** - Test Page
-* **0000** - NyanFax
-* **0000** - Random XKCD
-* **0000** - Sudoku
-* **0000** - Schedule
-* **0000** - Weather (Simple)
-* **0000** - Weather (Chart)
+* **903980**: Test Page
+* **903982**: dQw4w9WgXcQ
+* **903983**: NyanFax
+* **903984**: Weather - Basic
+* **903985**: Weather - Chart
+* **903986**: Sudoku
+* **903987**: XKCD
+* **903988**: Now & Next
+* **903989**: The Faxing Clock
 
 ## Create a fax!
 
 If you have a static PDF, or a script / URL that produces a dynamic PDF we can make it accesible to subscribers with fax machine - Please [get in touch!](https://cutel.net/contact/)
-
-## Fax2Fedi
-
-Send a fax to the Fediverse. Send your fax to 0000 and it'll get displayed on [@EMFFacsimile@mastodon.social](https://mastodon.social/@EMFFacsimile)
