@@ -22,6 +22,9 @@ If you call these numbers from your fax machine and hang up once you've heard "F
 * **903987**: XKCD
 * **903988**: Now & Next
 * **903989**: The Faxing Clock
+* **903993**: Random colouring page for kids (and adults)
+* **903994**: Battleships
+* **903995**: Connect Four + Dots & Boxes
 
 ## Create a fax!
 
