@@ -25,7 +25,3 @@ If you call these numbers from your fax machine and hang up once you've heard "F
 * **903993**: Random colouring page for kids (and adults)
 * **903994**: Battleships
 * **903995**: Connect Four + Dots & Boxes
-
-## Create a fax!
-
-If you have a static PDF, or a script / URL that produces a dynamic PDF we can make it accesible to subscribers with fax machine - Please [get in touch!](https://cutel.net/contact/)
