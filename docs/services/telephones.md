@@ -14,3 +14,7 @@ Called ID is enabled by default but uses "Bellcore" rather than the standard use
 Lines are limited to 2 REN and should provide enough ringing current to ring the bells on a converted retro telephone with the 3.3k resistor fitted in series with the bell.
 
 Note that many phones require a "Ring Capacitor" which isn't always found in adapters or telephone sockets. Look out for ones the mention "Master", "PABX" or "PBX" in the name. Or buy a compatible one from the ECHQ village.
+
+### Useful numbers
+
+See [useful numbers](useful_numbers.md)
