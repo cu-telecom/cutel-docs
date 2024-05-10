@@ -35,12 +35,9 @@ Patch your cable by inserting it through the hole in the side of Distribution Po
 
 ## Activating your line
 
-Once connected, you will need to activate your line to receive inbound calls. There are two methods:
+Once connected, you will need to activate your line to receive inbound calls by calling the activations team on 156. You will be assigned a 903XXX number.
 
 ### Claim a memorable extension number
 
 You can request a memorable extension number from the (Top Secret) number management system. To do so follow these instructions TODO: Link to instructions and dial the activation number from your apparatus. Your line will then be allocated the memorable number and you can make and recieve calls.
 
-### Use a standard extension number
-
-To use a standard extension number, call TODO: Add the number. You will be allocated a standard number and can now make and receive calls.
