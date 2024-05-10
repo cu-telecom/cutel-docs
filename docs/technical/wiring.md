@@ -1,4 +1,3 @@
-
 ## Wiring Diagrams
 
 If you want to make your own cables, sockets, or Network Termination Equipment, refer to the diagram below. 

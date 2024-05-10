@@ -15,6 +15,7 @@ nav:
     - services/useful_numbers.md
   - Technical:
     - technical/wiring.md
+    - technical/modems.md
 markdown_extensions:
   - attr_list
   - md_in_html
