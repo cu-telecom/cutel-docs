@@ -1,20 +1,10 @@
 # DSL
 
-We are hoping to operate ADSL and VDSL2 services in a limited trial area located in the North-East of the site around [DKC1](https://map.emfcamp.org/#15.48/52.041349/-2.375839/m=52.0429946,-2.3748114)
+We are hoping to operate ADSL and VDSL2 services in a limited trial area located in the North-East of the site around [DKC2](https://map.emfcamp.org/#19.16/52.0430086/-2.3742415/B,N,P,St,V/m=52.043128,-2.373852)
 
 If you can't camp in this area but which to play with VDSL, you're welcome to drop by the ECHQ Village
 
 **Note:** This is a _trial_ and might not come to fruition.
-
-## Trial Area
-
-The area highlighted in orange represents the maximum reach of 100m of cable but you should allow for bends etc and a few metres at each end for patching.
-
-<figure markdown="span">
-  [![DSL Trial Area](../images/CuTEL_DSL_TRIAL.png){ width="400" }](../images/CuTEL_DSL_TRIAL.png)
-  <figcaption>DSL Trial Area</figcaption>
-</figure>
-
 
 ## Equipment
  
