@@ -34,5 +34,5 @@ Logging in with different credentials will connect you to different services
 
 AKA The public internet. Note that due to the massive bloat of modern websites your experience will be poor. Try to find low bandwidth services. To protect old and insecure devices, a stateful firewall drops inbound connections.
 
-**Username:** dialup@cutel.net
+**Username:** dialup@cutel.net  
 **Password:** dialup
