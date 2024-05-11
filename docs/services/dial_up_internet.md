@@ -23,16 +23,16 @@ Logging in with different credentials will connect you to different services
 
 ### Protoweb
 
-[Protoweb](https://protoweb.org/) is a free public service that hosts historical Internet websites to demonstrate the Internet in it’s early days by currating and restoring websites from [https://archive.org/](https://archive.org/)
+[Protoweb](https://protoweb.org/) is a free public service that hosts historical Internet websites to demonstrate the Internet in it’s early days by currating and restoring websites from [https://archive.org/](https://archive.org/). Connections from the public internet are blocked in both directions.
 
-**Username:** protoweb@protoweb.org  
-**Password:** protoweb  
+**Username:** dialup@protoweb.org  
+**Password:** dialup  
 **Home Page:** http://www.inode.com  
 **Search:** http://search.inode.com  
 
 ### Clearnet
 
-AKA The public internet. Note that due to the massive bloat of modern websites your experience will be poor. Try to find low bandwidth services.
+AKA The public internet. Note that due to the massive bloat of modern websites your experience will be poor. Try to find low bandwidth services. To protect old and insecure devices, a stateful firewall drops inbound connections.
 
-**Username:** clearnet@cutel.net
-**Password:** clearnet
+**Username:** dialup@cutel.net
+**Password:** dialup
