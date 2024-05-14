@@ -39,10 +39,13 @@ Once connected, you will need to activate your line to receive inbound calls by 
 
 ### Claim a memorable extension number
 
-You can request a memorable extension number from the [Electromagnetic Phonebook](https://phones.emfcamp.org/). You will need to activate your line before claiming a memorable number.  
+You can request a memorable extension number from the [Electromagnetic Phonebook](https://phones.emfcamp.org/). 
+
+Note - You will need to activate your line by calling 156 before claiming a memorable number.  
 
 * [Register an account](https://phones.emfcamp.org/register/)
 * Click "Add a Number"
 * Chose a memorable number - remember to set the "Type of Service" to POTS
 * You'll then get returned to a list of your numbers. Select "Details" for instructions how to claim your number - LD (Pulse) phones will have to use the long format shown on the bottom of the page.
 
+Additional information on number registration, DECT and creating apps can be found on the [EMF Website](https://www.emfcamp.org/about/phones)
