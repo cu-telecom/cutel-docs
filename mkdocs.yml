@@ -12,11 +12,13 @@ nav:
     - services/viewdata.md
     - services/dsl.md
     - services/telemessage.md
+    - services/dinner_bell.md
     - services/useful_numbers.md
   - Technical:
     - technical/wiring.md
     - technical/modems.md
 markdown_extensions:
+  - pymdownx.tilde
   - attr_list
   - md_in_html
 plugins: []

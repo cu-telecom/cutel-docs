@@ -6,6 +6,10 @@ Built using [mkdocs](https://www.mkdocs.org/) with the [material](https://squidf
 
 PRs accepted!
 
+# Dependencies 
+
+pip install pymdown-extensions
+
 # License
 
 This project is licensed under the MIT license. See LICENSE for Details.
