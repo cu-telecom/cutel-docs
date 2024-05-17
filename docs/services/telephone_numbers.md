@@ -12,10 +12,10 @@
 
 # Not so useful telephone numbers
 
-These numbers might change before the event.  
+A selection of fun numbers to ring. Note the numbers might change before the event.  
 
 * **903940**: Catch up with Lenny
-* **903941**: Book a local hotel
+* **903941**: Watery Fowls Hotel
 * **903942**: Rave
 * **903943**: MI6
 * **903944**: Martin-1
