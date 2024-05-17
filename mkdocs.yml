@@ -13,7 +13,7 @@ nav:
     - services/dsl.md
     - services/telemessage.md
     - services/dinner_bell.md
-    - services/useful_numbers.md
+    - 'Telephone Numbers': 'services/telephone_numbers.md'
   - Technical:
     - technical/wiring.md
     - technical/modems.md

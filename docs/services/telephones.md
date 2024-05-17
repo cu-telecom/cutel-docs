@@ -15,6 +15,6 @@ Lines are limited to 2 REN and should provide enough ringing current to ring the
 
 Note that many phones require a "Ring Capacitor" which isn't always found in adapters or telephone sockets. Look out for ones the mention "Master", "PABX" or "PBX" in the name. Or buy a compatible one from the ECHQ village.
 
-### Useful numbers
+### Telephone numbers
 
-See [useful numbers](useful_numbers.md)
+See [telephone numbers](telephone_numbers.md)
