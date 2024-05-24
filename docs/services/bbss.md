@@ -4,21 +4,22 @@ You can access several Bulletin Boards from the CuTEL Network.
 
 If you intend to host your own BBS on a CuTEL line, please see the technical page for [modems](../technical/modems.md)
 
-## CuTEL BBS
+## EMF BBS
 
-CuTEL BBS is a basic BBS that allows you to chat with other users. It's bridged to #cutel on Libera.chat and the #irc-relay channel on the CuTEL Discord Server.
+EMF BBS is a (very) basic BBS that allows you to chat with other users and check the weather. The chat's bridged to #cutel on Libera.chat and the #irc-relay channel on the [CuTEL Discord Server](https://discord.gg/aSNTDwzvAR).
 
-### Modem
+### Connecting
 
-You can connect to the BBS by calling these numbers from a suitable device
+* **Modem** - 903931
+* **Telnet** - bbs.cutel.net:23
+* **IRC** - If you want to join the fun but don't want to connect directly to the BBS or run an IRC client, you can use the [web client](https://web.libera.chat/gamja/#cutel)
 
-* **0000** - 300 Baud
-* **0000** - Upto 56k
+## Magnum BBS
 
-### Telnet
+For a more complete BBS experience try [Magnum](https://bbs.magnum.uk.net/) which features Chat, Messaging and Games! Magnum is one of the best UK Bulletin Boards going and the Sysop known as Keyop does a great job of operating it.
 
-bbs.cutel.net:23
+### Connecting
 
-### IRC
+* **Modem** - 903930
+* **Telnet** - bbs.magnum.uk.net:23
 
-If you want to join the fun but don't want to connect directly to the BBS or run an IRC client, you can use the [web client](https://web.libera.chat/gamja/#cutel)
