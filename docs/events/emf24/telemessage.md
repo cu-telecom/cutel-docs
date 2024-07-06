@@ -3,7 +3,7 @@
 Telemessage is an innovative new service brought to you by CuTEL in partnership with the EMF Sneakernet team that allows you to send  messages via your fax machine for delivery via mail and likewise allows someone to place a message in a Sneakernet post box for delivery via fax. 
 
 <figure markdown="span">
-  [![Telemessage / Sneakernet](../images/Telemessage-Sneakernet-logo.png){ width="400" }](../images/Telemessage-Sneakernet-logo.png)
+  [![Telemessage / Sneakernet](images/Telemessage-Sneakernet-logo.png){ width="400" }](images/Telemessage-Sneakernet-logo.png)
   <figcaption>Telemessage / Sneakernet</figcaption>
 </figure>
 

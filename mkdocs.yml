@@ -3,20 +3,24 @@ site_url: https://docs.cutel.net
 repo_url: https://github.com/cu-telecom/cutel-docs
 nav:
   - Welcome: index.md
-  - Getting Started: getting_started.md
-  - Services:
-    - services/telephones.md
-    - services/faxing.md
-    - services/bbss.md
-    - services/dial_up_internet.md
-    - services/viewdata.md
-    - services/dsl.md
-    - services/telemessage.md
-    - services/dinner_bell.md
-    - 'Telephone Numbers': 'services/telephone_numbers.md'
+  - Events:
+    - 'Electromagnetic Field 2024':
+      - events/emf24/index.md
+      - events/emf24/getting_started.md
+      - events/emf24/telephones.md
+      - events/emf24/faxing.md
+      - events/emf24/bbss.md
+      - events/emf24/dial_up_internet.md
+      - events/emf24/viewdata.md
+      - events/emf24/dsl.md
+      - events/emf24/telemessage.md
+      - events/emf24/dinner_bell.md
+      - 'Telephone Numbers': 'events/emf24/telephone_numbers.md'
   - Technical:
-    - technical/wiring.md
-    - technical/modems.md
+    - technical/index.md
+    - 'Wiring Standards': 'technical/wiring.md'
+    - 'Cisco':
+      - technical/cisco/vg224.md
 markdown_extensions:
   - pymdownx.tilde
   - attr_list
@@ -31,5 +35,6 @@ theme:
   features:
     - toc.integrate
     - navigation.top
-    - navigation.expand
+    - navigation.indexes 
+    #- navigation.expand
   custom_dir: ./overrides

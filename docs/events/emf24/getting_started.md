@@ -5,7 +5,7 @@
 
 * Some telecoms apparatus, like a telephone, fax machine or modem
 * 50-60m of twisted pair cable. The easiest option is a pre-terminated [CAT5 Ethernet Cable](https://www.amazon.co.uk/Snagless-Ethernet-Network-Compatible-Consoles-Black/dp/B08DCZP1LR)
-* Some way of connecting your apparatus to the line. For a standard BT 431A plug the easiest option is an RJ45 coupler and adapter which can be purchased from the ECHQ village, or you can [make your own](technical/wiring.md). Remember to include a ring capacitor!
+* Some way of connecting your apparatus to the line. For a standard BT 431A plug the easiest option is an RJ45 coupler and adapter which can be purchased from the ECHQ village, or you can [make your own](../../technical/wiring.md). Remember to include a ring capacitor!
 * Optionally - A trunk adapter to break out 4 phone lines on a single CAT5 cable, which might be useful for a village.
 
 <figure markdown="span">

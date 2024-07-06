@@ -8,11 +8,11 @@ If you can't camp in this area but which to play with VDSL, you're welcome to dr
 
 ## Equipment
  
- - Lots of CAT5 or twisted pair cable, up to 100m. Terminated with CAT5 as per the [wiring diagram](../technical/wiring.md))
+ - Lots of CAT5 or twisted pair cable, up to 100m. Terminated with CAT5 as per the [wiring diagram](../../technical/wiring.md))
  - A router or modem that supports ADSL2 or VDSL2. You _must_ be able to disable the WiFi functionality on it, ideally prior to EMF.
 
 <figure markdown="span">
-  [![Cisco 887](../images/Cisco_887.jpg){ width="400" }](../images/Cisco_887.jpg)
+  [![Cisco 887](images/Cisco_887.jpg){ width="400" }](images/Cisco_887.jpg)
   <figcaption>Cisco 887</figcaption>
 </figure>
 

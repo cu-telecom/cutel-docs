@@ -9,7 +9,7 @@ Volunteering helps make the event better for everyone, guarantees you ticket for
 To sign up to volunteer or learn more see [https://www.emfcamp.org/volunteer/info](https://www.emfcamp.org/volunteer/info)
 
 <figure markdown="span">
-  [![A Division Bell](../images/Division-bell.jpg){ width="400" }](../images/Division-bell.jpg)
+  [![A Division Bell](images/Division-bell.jpg){ width="400" }](images/Division-bell.jpg)
   <figcaption>A Division Bell</figcaption>
 </figure>
 

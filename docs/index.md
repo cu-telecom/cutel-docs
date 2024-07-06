@@ -1,8 +1,8 @@
 # Welcome to CuDocs
 
-Welcome to the CuTEL Documentation! It mostly applies to the network that will be operating at [EMF Camp](https://www.emfcamp.org/) between May 30th – June 2nd 2024.
+Welcome to the CuTEL Documentation! We've not got any events coming up right now, but if you want to see the archived docs for EMF 2024 click [here](events/emf24/).
 
-If you're looking to get connected to the network see [Getting Started](getting_started.md)
+We're also in the process of creating some [technical documentation](technical/) covering how to run your own copper telephone network, and more generic hints and tips on configuring Cisco voice hardware and other comms equipment. It's a work in progress and might be a bit rough around the edges for a while so bare with us. If you'd like to contribute, checkout the [github repo](https://github.com/cu-telecom/cutel-docs) or get in touch.
 
 ## What is CuTEL?
 

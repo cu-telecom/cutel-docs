@@ -2,7 +2,7 @@
 
 You can access several Bulletin Boards from the CuTEL Network.  
 
-If you intend to host your own BBS on a CuTEL line, please see the technical page for [modems](../technical/modems.md)
+If you intend to host your own BBS on a CuTEL line, please get in touch so we can optimise your line.
 
 ## EMF BBS
 
