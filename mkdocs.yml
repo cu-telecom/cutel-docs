@@ -20,12 +20,16 @@ nav:
     - technical/index.md
     - 'Wiring Standards': 'technical/wiring.md'
     - 'Cisco':
+      - technical/cisco/basics.md
+      - technical/cisco/bootstrapping.md
+      - 'Upgrading IOS': 'technical/cisco/upgrading_ios.md'
       - technical/cisco/vg224.md
 markdown_extensions:
   - pymdownx.tilde
   - attr_list
   - md_in_html
-plugins: []
+plugins:
+  - search
 theme:
   name: material
   logo: assets/logo-light.svg

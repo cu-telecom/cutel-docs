@@ -1,0 +1,640 @@
+# * We should record the triggered zones somewhere?
+# * If a tamper is opened, we should sound the alarm. We might need to add an engineer mode to disable this
+# * Maintanence mode should show zone / pir state etc
+# * We probably shouldn't arm if theres a tamper
+
+globals:
+  - id: alarm_timeout
+    type: int
+    restore_value: no
+    initial_value: '15'
+  - id: exit_delay
+    type: int
+    restore_value: no
+    initial_value: '10'
+  - id: entry_delay
+    type: int
+    restore_value: no
+    initial_value: '10'
+  - id: status_string
+    type: std::string
+    restore_value: no
+    initial_value: '"DISARMED"'
+
+esphome:
+  name: alarm
+  includes:
+    - bitmaps.h
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+    version: recommended
+
+# Enable logging
+logger:
+
+ota:
+  - platform: esphome
+    password: "gateway1"
+
+wifi:
+  ssid: "DELTA"
+  password: "TwistedToucan12"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Alarm Fallback Hotspot"
+    password: "JNMONSsCnTEu"
+
+captive_portal:
+
+sun:
+  latitude: 51.6556°
+  longitude: -0.4192°
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: Europe/London
+    servers:
+     - 0.pool.ntp.org
+     - 1.pool.ntp.org
+     - 2.pool.ntp.org
+
+web_server:
+  port: 80
+
+i2c:
+  sda: 4
+  scl: 5
+  scan: true
+  id: bus_a
+
+pcf8574:
+  - id: 'pcf8574_hub_out_1'  # for output channel 1-8
+    address: 0x24
+
+  - id: 'pcf8574_hub_in_1'  # for input channel 1-8
+    address: 0x22
+
+# Individual outputs
+switch:
+  - platform: gpio
+    name: "sw_backlight"
+    id: "sw_backlight"
+    restore_mode: RESTORE_DEFAULT_OFF
+    pin:
+      pcf8574: pcf8574_hub_out_1
+      number: 0
+      mode: OUTPUT
+      inverted: true
+    internal: true
+
+  - platform: gpio
+    name: "sw_strobe"
+    id: "sw_strobe"
+    #restore_mode: RESTORE_DEFAULT_OFF
+    pin:
+      pcf8574: pcf8574_hub_out_1
+      number: 1
+      mode: OUTPUT
+      inverted: true
+    internal: true
+
+  - platform: gpio
+    name: "sw_siren_high"
+    id: "sw_siren_high"
+    #restore_mode: RESTORE_DEFAULT_OFF
+    pin:
+      pcf8574: pcf8574_hub_out_1
+      number: 2
+      mode: OUTPUT
+      inverted: true
+    internal: true
+
+  - platform: gpio
+    name: "sw_siren_low"
+    id: "sw_siren_low"
+    #restore_mode: RESTORE_DEFAULT_OFF
+    pin:
+      pcf8574: pcf8574_hub_out_1
+      number: 3
+      mode: OUTPUT
+      inverted: true
+    internal: true
+
+  - platform: gpio
+    name: "sw_triggered_led"
+    id: "sw_triggered_led"
+    #restore_mode: RESTORE_DEFAULT_OFF
+    pin:
+      pcf8574: pcf8574_hub_out_1
+      number: 4
+      mode: OUTPUT
+      inverted: true
+    internal: true
+
+  - platform: gpio
+    name: "sw_armed_led"
+    id: "sw_armed_led"
+    #restore_mode: RESTORE_DEFAULT_OFF
+    pin:
+      pcf8574: pcf8574_hub_out_1
+      number: 5
+      mode: OUTPUT
+      inverted: true
+    internal: true
+
+  # - platform: gpio
+  #   name: "a8light7"
+  #   id: "a8light7"
+  #   restore_mode: RESTORE_DEFAULT_OFF
+  #   pin:
+  #     pcf8574: pcf8574_hub_out_1
+  #     number: 6
+  #     mode: OUTPUT
+  #     inverted: true
+
+  # - platform: gpio
+  #   name: "a8light8"
+  #   id: "a8light8"
+  #   restore_mode: RESTORE_DEFAULT_OFF
+  #   pin:
+  #     pcf8574: pcf8574_hub_out_1
+  #     number: 7
+  #     mode: OUTPUT
+  #     inverted: true
+
+
+
+  - platform: template
+    name: alarm_armed
+    id: tmp_alarm_armed
+    optimistic: true
+    #restore_mode: RESTORE_DEFAULT_OFF
+    internal: true
+
+  - platform: template
+    name: alarm_triggered
+    id: tmp_alarm_triggered
+    optimistic: true
+    #restore_mode: RESTORE_DEFAULT_OFF
+    internal: true
+
+  - platform: template
+    name: alarm_tamper
+    id: tmp_alarm_tamper
+    optimistic: true
+    #restore_mode: RESTORE_DEFAULT_OFF
+    internal: true
+
+  - platform: template
+    name: alarm_maintenance
+    id: tmp_alarm_maintenance
+    optimistic: true
+    #restore_mode: RESTORE_DEFAULT_OFF
+    internal: true
+
+button:
+
+  - platform: template
+    name: arm_alarm
+    id: tmp_arm_alarm
+    icon: "mdi:emoticon-outline"
+    on_press:
+      - script.execute: scr_arm_alarm
+
+  - platform: template
+    name: disarm_alarm
+    id: tmp_disarm_alarm
+    on_press:
+      - script.execute: scr_disarm_alarm
+
+  - platform: template
+    name: activate_panic
+    id: tmp_activate_panic
+    on_press:
+      - script.execute: scr_activate_panic
+
+  - platform: template
+    name: ack_alarm
+    id: tmp_ack_alarm
+    on_press:
+     - script.execute: scr_ack_alarm
+
+  - platform: template
+    name: maintain_alarm
+    id: tmp_maintain_alarm
+    on_press:
+      - script.execute: scr_maintain_alarm
+
+sensor:
+  - platform: uptime
+    name: Uptime Sensor
+
+binary_sensor:
+
+  # We use some templates here to expose the status of various
+  # internal things without allowing the user to change them
+  - platform: template
+    name: backlight_status
+    lambda: |-
+      if (id(sw_backlight).state) {
+        return true;
+      } else {
+        return false;
+      }
+
+  - platform: template
+    name: alarm_armed
+    lambda: |-
+      if (id(tmp_alarm_armed).state) {
+        return true;
+      } else {
+        return false;
+      }
+
+  - platform: template
+    name: alarm_maintenance
+    lambda: |-
+      if (id(tmp_alarm_maintenance).state) {
+        return true;
+      } else {
+        return false;
+      }
+
+  - platform: template
+    name: alarm_triggered
+    lambda: |-
+      if (id(tmp_alarm_triggered).state) {
+        return true;
+      } else {
+        return false;
+      }
+
+  - platform: template
+    name: "zone_activated"
+    id: zone_activated
+    lambda: |-
+      return id(in_zone_1).state || id(in_zone_2).state;
+    filters:
+      delayed_on_off: 100ms
+
+  - platform: template
+    name: "tamper_activated"
+    id: tamper_activated
+    lambda: |-
+      return id(in_tamper_1).state || id(in_tamper_2).state;
+    filters:
+      delayed_on_off: 100ms
+
+  - platform: template
+    name: alarm_maintenance
+    id: alarm_maintenance
+    lambda: |-
+      return id(tmp_alarm_maintenance).state;
+  
+  - platform: template
+    name: alarm_tamper
+    id: alarm_tamper
+    lambda: |-
+      return id(tmp_alarm_tamper).state;
+
+  # GPIOs start here
+
+  - platform: gpio
+    name: "in_zone_1"
+    id: in_zone_1
+    pin:
+      pcf8574: pcf8574_hub_in_1
+      number: 0
+      mode: INPUT
+      inverted: true
+    # on_press:
+    #   then:
+    #     - if:
+    #         condition:
+    #           - switch.is_on: tmp_alarm_armed
+    #         then:
+    #           - script.execute: scr_activate_alarm
+
+  - platform: gpio
+    name: "in_zone_2"
+    id: in_zone_2
+    pin:
+      pcf8574: pcf8574_hub_in_1
+      number: 1
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "in_tamper_1"
+    id: "in_tamper_1"
+    pin:
+      pcf8574: pcf8574_hub_in_1
+      number: 2
+      mode: INPUT
+      inverted: true
+
+  - platform: gpio
+    name: "in_tamper_2"
+    id: "in_tamper_2"
+    pin:
+      pcf8574: pcf8574_hub_in_1
+      number: 3
+      mode: INPUT
+      inverted: true
+
+  # - platform: gpio
+  #   name: "a8-input5"
+  #   pin:
+  #     pcf8574: pcf8574_hub_in_1
+  #     number: 4
+  #     mode: INPUT
+  #     inverted: true
+
+  # - platform: gpio
+  #   name: "a8-input6"
+  #   pin:
+  #     pcf8574: pcf8574_hub_in_1
+  #     number: 5
+  #     mode: INPUT
+  #     inverted: true
+
+  # - platform: gpio
+  #   name: "a8-input7"
+  #   pin:
+  #     pcf8574: pcf8574_hub_in_1
+  #     number: 6
+  #     mode: INPUT
+  #     inverted: true
+
+  # - platform: gpio
+  #   name: "a8-input8"
+  #   pin:
+  #     pcf8574: pcf8574_hub_in_1
+  #     number: 7
+  #     mode: INPUT
+  #     inverted: true
+
+  # - platform: gpio
+  #   name: "a8-s3"
+  #   pin:
+  #     number: 32
+  #     inverted: true
+
+  # - platform: gpio
+  #   name: "a8-s4"
+  #   pin:
+  #     number: 33
+  #     inverted: true
+
+
+
+script:
+
+  # Arm the alarm after a delay
+  - id: scr_arm_alarm
+    then:
+      - if:
+          condition:
+            switch.is_on: tmp_alarm_maintenance
+          then:
+            - logger.log: "Unable to arm whilst in maintenance mode"
+          else:
+            - if:
+                condition:
+                  and:
+                    - switch.is_off: tmp_alarm_triggered
+                    - switch.is_off: tmp_alarm_armed
+                then:
+                  - script.execute: scr_ack_alarm
+                  - lambda: |-
+                      id(status_string) = "ARMING";
+                  - switch.turn_on: sw_siren_low
+                  # - script.execute: scr_arm_blink_slow
+                  - delay: !lambda 'return id(exit_delay) * 1000;'
+                  - switch.turn_off: sw_siren_low
+                  # - script.stop: scr_arm_blink_slow
+                  - lambda: |-
+                      id(status_string) = "ARMED";
+                  - switch.turn_on: sw_armed_led
+                  - switch.turn_on: tmp_alarm_armed
+                else:
+                  - logger.log: "Unable to arm alarm when it's already active."
+
+  # Disarm the alarm
+  - id: scr_disarm_alarm
+    then:
+      - lambda: |-
+          id(status_string) = "DISARMED";
+      - script.execute: scr_ack_alarm
+      - switch.turn_off: tmp_alarm_armed
+      - switch.turn_off: sw_armed_led
+      - switch.turn_off: tmp_alarm_maintenance
+      - switch.turn_off: tmp_alarm_tamper
+
+  # Activate the alarm. This switches on the siren and strobe on after the entry_delay. After $alarm_timeout the
+  # siren is disabled, but the strobe remains on to signal an activation
+  - id: scr_activate_alarm
+    then:
+      - script.execute: scr_triggered_blink_fast
+      - switch.turn_on: sw_siren_low
+      - delay: !lambda 'return id(entry_delay) * 1000;'
+      - script.stop: scr_triggered_blink_fast
+      - switch.turn_off: sw_siren_low
+      - switch.turn_on: sw_strobe
+      - switch.turn_on: sw_siren_high
+      - switch.turn_on: sw_triggered_led
+      - switch.turn_on: tmp_alarm_triggered
+      - delay: !lambda 'return id(alarm_timeout) * 1000;'
+      - switch.turn_off: sw_siren_high
+
+  - id: scr_activate_tamper
+    then:
+      - switch.turn_on: sw_strobe
+      - switch.turn_on: sw_siren_high
+      - switch.turn_on: sw_triggered_led
+      - switch.turn_on: tmp_alarm_triggered
+      - delay: !lambda 'return id(alarm_timeout) * 1000;'
+      - switch.turn_off: sw_siren_high
+  
+  # Activate the panic alarm. This switches on the siren and strobe on. After $alarm_timeout the
+  # siren is disabled, but the strobe remains on to signal an activation
+  - id: scr_activate_panic
+    then:
+      - lambda: |-
+          id(status_string) = "PANIC";
+      - switch.turn_on: sw_strobe
+      - switch.turn_on: sw_siren_high
+      - switch.turn_on: sw_triggered_led
+      - switch.turn_on: tmp_alarm_triggered
+      - delay: !lambda 'return id(alarm_timeout) * 1000;'
+      - switch.turn_off: sw_siren_high
+
+  # Acknowledge the alarm. Turns off the siren and strobe.
+  - id: scr_ack_alarm
+    then:
+      - script.stop: scr_activate_alarm
+      - script.stop: scr_arm_blink_slow
+      - script.stop: scr_arm_blink_fast
+      - switch.turn_off: tmp_alarm_triggered
+      - switch.turn_off: tmp_alarm_tamper
+      - switch.turn_off: sw_triggered_led
+      - switch.turn_off: sw_strobe
+      - switch.turn_off: sw_siren_high
+      - switch.turn_off: sw_siren_low
+      - if:
+          condition:
+            switch.is_on: tmp_alarm_armed
+          then:
+            - lambda: |-
+                id(status_string) = "ARMED";
+          else:
+            - lambda: |-
+                id(status_string) = "DISARMED";
+
+  # Put the alarm into maintainance mode
+  - id: scr_maintain_alarm
+    then:
+      - if:
+          condition:
+            and:
+              - switch.is_off: tmp_alarm_triggered
+              - switch.is_off: tmp_alarm_armed
+          then:
+            - switch.turn_on: tmp_alarm_maintenance
+            - switch.turn_off: sw_strobe
+            - lambda: |-
+                id(status_string) = "MAINTENANCE";
+            - delay: 5s
+            - lambda: |-
+                for (int i = 0; i < 3; i++) {
+                  id(sw_strobe).turn_on();
+                  delay(500);
+                  id(sw_strobe).turn_off();
+                  delay(1000);
+                }
+          else:
+            - logger.log: "Alarm can't be put into maintaince mode because it's armed"
+
+  - id: scr_arm_blink_slow
+    then:
+      - while:
+          condition:
+            lambda: 'return true;'
+          then:
+            - switch.toggle: sw_armed_led
+            - delay: 1000ms
+
+  - id: scr_arm_blink_fast
+    then:
+      - while:
+          condition:
+            lambda: 'return true;'
+          then:
+            - switch.toggle: sw_armed_led
+            - delay: 500ms
+
+  - id: scr_triggered_blink_fast
+    then:
+      - while:
+          condition:
+            lambda: 'return true;'
+          then:
+            - switch.toggle: sw_triggered_led
+            - delay: 500ms
+
+
+interval:
+  # Backlight
+  - interval: 10s
+    then:
+      - if:
+          condition:
+            sun.is_below_horizon:
+          then:
+            - lambda: |-
+                if (!id(sw_backlight).state) {
+                  id(sw_backlight).turn_on();
+                }
+          else:
+            - lambda: |-
+                if (id(sw_backlight).state) {
+                  id(sw_backlight).turn_off();
+                }
+  # Check zone status and activate alarm if armed and zone triggered
+  - interval: 1s
+    then:
+      - lambda: |-
+          if (id(tmp_alarm_armed).state && id(zone_activated).state) {
+            id(status_string) = "TRIGGERED";
+            id(scr_activate_alarm).execute();
+          }
+
+  - interval: 1s
+    then:
+      - lambda: |-
+          if (!id(tmp_alarm_maintenance).state && id(tamper_activated).state) {
+            id(status_string) = "TAMPER";
+            id(tmp_alarm_tamper).turn_on()
+            id(scr_activate_tamper).execute();
+          }
+  
+  # Rotate through screens
+  - interval: 5s
+    then:
+      - display.page.show_next: oled_display
+      - component.update: oled_display
+
+font:
+  - file: 'arial.ttf'
+    id: font_arial
+    size: 15
+
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    address: 0x3C
+    id: oled_display
+    pages:
+      - id: page1
+        lambda: |-
+          const unsigned char* bitmap = bitmap_diamond;
+          if (id(status_string).c_str() == std::string("DISARMED")) {
+            bitmap = bitmap_unlocked;
+          } else if (id(status_string).c_str() == std::string("ARMED")) {
+            bitmap = bitmap_locked;
+          } else if (id(status_string).c_str() == std::string("ARMING")) {
+            bitmap = bitmap_locked;
+          } else if (id(status_string).c_str() == std::string("TRIGGERED")) {
+            bitmap = bitmap_alarm;
+          } else if (id(status_string).c_str() == std::string("PANIC")) {
+            bitmap = bitmap_panic;
+          } else if (id(status_string).c_str() == std::string("MAINTENANCE")) {
+            bitmap = bitmap_maintenance;
+          } else if (id(status_string).c_str() == std::string("TAMPER")) {
+            bitmap = bitmap_tamper;
+          } 
+
+          // Draw the status string
+          it.print(64, 0, id(font_arial), TextAlign::CENTER_HORIZONTAL, id(status_string).c_str());
+
+          // Draw the bitmap
+          int y_offset = 16;
+          for (int y = 0; y < 32; y++) { // Adjust the height to 32
+            for (int x = 0; x < 128; x++) {
+              uint8_t byte = bitmap[y * (128 / 8) + x / 8];
+              if (byte & (1 << (7 - (x % 8)))) {
+                it.draw_pixel_at(x, y + y_offset, COLOR_OFF);
+              } else {
+                it.draw_pixel_at(x, y + y_offset, COLOR_ON);
+              }
+            }
+          }
+
+          // Draw the time
+          it.strftime(64, 48, id(font_arial), TextAlign::CENTER_HORIZONTAL, "%H:%M", id(sntp_time).now());
+
