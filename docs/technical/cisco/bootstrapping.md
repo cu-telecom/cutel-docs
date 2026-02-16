@@ -117,7 +117,3 @@ ip route 0.0.0.0 0.0.0.0 10.0.130.1
 end
 copy run start
 ```
-
-## Upgrading the IOS image
-
-See [Upgrading IOS](upgrading_ios.md)

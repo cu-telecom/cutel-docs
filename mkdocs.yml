@@ -22,7 +22,6 @@ nav:
     - 'Cisco':
       - technical/cisco/basics.md
       - technical/cisco/bootstrapping.md
-      - 'Upgrading IOS': 'technical/cisco/upgrading_ios.md'
       - technical/cisco/vg224.md
 markdown_extensions:
   - pymdownx.tilde
