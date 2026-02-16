@@ -8,7 +8,7 @@ PRs accepted!
 
 The site is built using [mkdocs](https://www.mkdocs.org/) and the [material](https://squidfunk.github.io/mkdocs-material/) theme.
 
-Adding or editing content is reasonably self-explanatory, but for more information see the [mkdocs user-guide](https://www.mkdocs.org/user-guide/)
+Adding or editing content is reasonably self-explanatory, but for more information see the [mkdocs user-guide](https://www.mkdocs.org/user-guide/). One common "gotcha" is when adding pages, you must update the `nav` section in `mkdocs.yml`
 
 To get started, fork `https://github.com/cu-telecom/cutel-docs.git` to your own Github account and clone it locally.
 
