@@ -79,7 +79,7 @@ To configure the authentication and create a user enter the following, rememberi
 en
 conf t
 aaa new-model
-username your_username priviledge 15 secret your_password
+username your_username privilege 15 secret your_password
 aaa authentication login default local
 aaa authorization exec default local
 end
