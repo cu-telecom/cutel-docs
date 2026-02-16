@@ -1,6 +1,6 @@
 # Welcome to CuDocs
 
-Welcome to the CuTEL Documentation! We've not got any events coming up right now, but if you want to see the archived docs for EMF 2024 click [here](events/emf24/index.md).
+Welcome to the CuTEL Documentation! Our next major event will be [Electromagnetic Field 2026](https://www.emfcamp.org/), where we will be providing the finest copper based telephony and more! We will start bringing up documentation in good time, but if you want to see the archived docs for EMF 2024 click [here](events/emf24/index.md).
 
 We're also in the process of creating some [technical documentation](technical/index.md) covering how to run your own copper telephone network, and more generic hints and tips on configuring Cisco voice hardware and other comms equipment. It's a work in progress and might be a bit rough around the edges for a while so bare with us. If you'd like to contribute, checkout the [github repo](https://github.com/cu-telecom/cutel-docs) or get in touch.
 

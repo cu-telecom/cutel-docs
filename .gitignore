@@ -1,2 +1,37 @@
-/site/
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Pip / build artifacts
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# -------------------------
+# MkDocs
+# -------------------------
+site/
+
+# -------------------------
+# OS Files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# IDE / Editor
+# -------------------------
+.vscode/
+.idea/
+*.swp
 
