@@ -2,6 +2,11 @@
 
 The Cisco WIC-nAM (WAN Interface Card - _n_ Analog Modem) is a 56k capable dial up modem, that can both originate and answer calls.
 
+<figure markdown="span">
+  [![A Cisco WIC-1AMv2](images/wic1-amv2.png){ width="400" }](images/wic1-amv2.png)
+  <figcaption>A Cisco WIC-1AMv2</figcaption>
+</figure>
+
 There are a number of models:
 
 * WIC-1AM - 1 Modem
@@ -149,5 +154,6 @@ The following debug might be useful:
 ```
 debug chat  
 debug ppp authentication  
-debug ppp negotiation  
+debug ppp negotiation
+debug dialer events
 ```
