@@ -23,6 +23,7 @@ nav:
       - technical/cisco/basics.md
       - technical/cisco/bootstrapping.md
       - technical/cisco/vg224.md
+      - 'WIC-nAM': technical/cisco/wic-nam.md
 markdown_extensions:
   - pymdownx.tilde
   - attr_list
