@@ -24,6 +24,7 @@ nav:
       - technical/cisco/bootstrapping.md
       - technical/cisco/vg224.md
       - 'WIC-nAM': technical/cisco/wic-nam.md
+      - 'VICn-nFXO': technical/cisco/VIC-nFXO.md
       - 'AS5350': technical/cisco/as5350.md
 markdown_extensions:
   - pymdownx.tilde
