@@ -98,13 +98,13 @@ voice register dn  2
 voice register pool  1
  id mac 0011.2233.4455
  number 1 dn 1
- cor outgoing FXO030 default
+ cor incoming FXO030 default
  username 1001 password 1234
 !
 voice register pool  2
  id mac 0011.2233.4466
  number 2 dn 2
- cor outgoing FXO031 default
+ cor incoming FXO031 default
  username 1002 password 1234
 !
 ```
