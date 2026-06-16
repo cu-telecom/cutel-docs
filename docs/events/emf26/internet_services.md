@@ -2,10 +2,10 @@
 
 This year we will be offering a plethora of Internet Services, supporting up to 1Gb/s !
 
-## Notes
+!!! warning "Disclaimer"
 
-* All these services are best effort, experimental, and provided for fun. If you want reliable internet maintained by _real_ network engineers, please use the services provided by the EMF NOC Team.
-* Please disable WiFi on any routers or equipment you're using, ideally before arriving on site.
+    * All these services are best effort, experimental, and provided for fun. If you want reliable internet maintained by _real_ network engineers, please use the services provided by the EMF NOC Team.
+    * Please disable WiFi on any routers or equipment you're using, ideally before arriving on site.
 
 ## Dial Up Internet
 
@@ -27,18 +27,27 @@ If you intend to host your own Dial Up service on a CuTEL line, please get in to
 
 Telephone numbers will be announced closer to the event. Login credentials are as per *[PPPoE](#pppoe)*.
 
-## VDSL/ADSL2 (Fibre to the DK)
+## Experimental Services
 
-We will be providing DSL services in a limited trial area (TBC), with blazing fast speeds of up to 80Mb/s down and 20Mb/s up !
+We'll be offering some cutting-edge, experimental services within a limited trial area, covering [Camping C2](https://map.emfcamp.org/#16/52.0411/-2.3784/m=52.042,-2.37589)
 
-### Required Equipment
+<figure markdown="span">
+  [![CuTEL Trial Area](images/CuTEL-ISP-Coverage.png){ width="400" }](images/CuTEL-ISP-Coverage.png)
+  <figcaption>CuTEL Trial Area</figcaption>
+</figure>
+
+### VDSL/ADSL2 (Fibre to the DK)
+
+Within the trial area we'll be offering VDSL and ADSL2 with blazing fast speeds of up to 80Mb/s down and 20Mb/s up !
+
+#### Required Equipment
 
 * A 50m ethernet cable + BT Adapter
 * A router with builtin ADSL2 or VDSL modem
 * **OR** a separate router + DSL modem
 * A DSL filter
 
-### Accessing the service
+#### Accessing the service
 
 PPPoE is used to access the service - see *[PPPoE](#pppoe)* for more information. PPPoA is **not** supported.
 
@@ -49,21 +58,26 @@ The following VLANs are available:
 | *untagged* | General PPPoE access |
 | 101        | PPPoE for BT (and related) devices |
 
-## GPON (Fibre to the Tent)
+### GPON (Fibre to the Tent)
 
-We are intending to run a GPON network in a limited trial area (TBC). You may know this style of service as “Fibre to the Premises” - or in this case Fibre to the Tent.
+Within the trial area we'll also be offering [GPON](https://en.wikipedia.org/wiki/GPON). You may know this style of service as “Fibre to the Premises” - or in this case Fibre to the Tent.
 
 We'll be offering up to face melting Gigabit speeds!
 
-### Required Equipment
+#### Required Equipment
 
 You'll need some hardware to connect to the GPON network:
 
-- An ONT
-- A suitable fibre - the splitter end should be SC APC (Green) and the ONT end should match your hardware.
+- An ONT (see *[ONT Compatibility](#ont-compatibility)*)
+- A suitable length fibre - the splitter end should be SC APC (Green) and the ONT end should match your hardware.
 - You may want to bring a suitable router, but you could connect a laptop directly if you're packing light
 
-### ONT Compatibility
+<figure markdown="span">
+  [![SC APC Fibre](images/SC_APC_Fibre.jpg){ width="400" }](images/SC_APC_Fibre.jpg)
+  <figcaption>SC APC Fibre</figcaption>
+</figure>
+
+#### ONT Compatibility
 
 A table of ONTs that have been tested and confirmed as working can be found below.
 
@@ -78,7 +92,7 @@ A table of ONTs that have been tested and confirmed as working can be found belo
 | Huawei EG8120L  | 1GE + 1FE | Manual | No | £15 |
 | Huawei HG8230V | 2FE | Manual | No | £6.50 |
 
-### Accessing the service
+#### Accessing the service
 
 When you connect your ONT, it should be automatically provision general internet access on the 1st ethernet interface (untagged)
 
@@ -101,14 +115,14 @@ Many of the Huawei ONTs have an "FXS" port that allows you to connect an analogu
 
 -->
 
-### Other notes
+!!! tip "Tips"
 
-- Fibre optics don't like sharp bends or other mechanical stress
-- Dirty connectors can reduce performance. Avoid touching them, and apply dust caps when not in use.
-- SC APC and SC UPC connectors will physically connect, but it can damage them. Avoid mixing connector types / colours.
-- GPON uses lasers. These are at low power levels, but avoid looking directly into any connectors.
+    - Fibre optics don't like sharp bends or other mechanical stress
+    - Dirty connectors can reduce performance. Avoid touching them, and apply dust caps when not in use.
+    - SC APC and SC UPC connectors will physically connect, but it can damage them. Avoid mixing connector types / colours.
+    - GPON uses lasers. These are at low power levels, but avoid looking directly into any connectors.
 
-## PPPoE
+### PPPoE
 
 We service the following PPPoE realms (*See below for 'wholesaling'*):
 
@@ -128,7 +142,7 @@ These have been tested to be plug-and-play functional with BT Home Hubs and Busi
 CGNAT addresses come out of `100.64.0.0/10`. We'd recommend using these on old, potentially insecure, equipment.
 **We don't** give out static addresses of either type, so expect your IPv6 PD ranges to change. We may be able to advertise & route your prefixes - if you're after this, please give advance notice.
 
-## Wholesale Broadband
+### Wholesale Broadband
 
 This year, we are giving connected users the option of becoming their own ISP.
 This can be done by running an L2TP server and setting the DNS up as follows:
@@ -139,18 +153,18 @@ This can be done by running an L2TP server and setting the DNS up as follows:
     - For example, you can log in as `youruser@<YOUR DOMAIN>`, where `<YOUR DOMAIN>` is the same as above
     - **Further authentication** is handled by your server.
 
-### Important Points
+#### Important Points
 - Your L2TP server **must** listen on port `1701` on a *publicly reachable* IPv4 address.
 - The L2TP secret sent is always `emf2026`
 - Up to **three** SRV records will be load-balanced round-robin.
 
-### <span style="color:red">**Security**</span>
+!!! danger "Security"
 
-As the shared secret is known, we **strongly** recommend setting up IP access lists for your LNS. L2TP traffic is also plain-text, so choose your authentication schemes carefully. We can offer **IPSec** transport for your L2TP traffic - please let us know with plenty of notice.
+    As the shared secret is known, we **strongly** recommend setting up IP access lists for your LNS. L2TP traffic is also plain-text, so choose your authentication schemes carefully. We can offer **IPSec** transport for your L2TP traffic - please let us know with plenty of notice.
 
-Our LAC will have the following IP: `109.95.186.254` (***This is currently subject to change! Please review this as you arrive at EMF***)
+    Our LAC will have the following IP: `109.95.186.254` (***This is currently subject to change! Please review this as you arrive at EMF***)
 
-### Checking your DNS configuration
+#### Checking your DNS configuration
 
 <script src="/assets/dnscheck.js"></script>
 
