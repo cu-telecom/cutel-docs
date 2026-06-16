@@ -25,7 +25,7 @@ If you intend to host your own Dial Up service on a CuTEL line, please get in to
 
 ### Accessing the service
 
-Telephone numbers and login credentials will be announced closer to the event
+Telephone numbers will be announced closer to the event. Login credentials are as per *[PPPoE](#pppoe)*.
 
 ## VDSL/ADSL2 (Fibre to the DK)
 
@@ -40,7 +40,14 @@ We will be providing DSL services in a limited trial area (TBC), with blazing fa
 
 ### Accessing the service
 
-Login credentials will be announced closer to the event.
+PPPoE is used to access the service - see *[PPPoE](#pppoe)* for more information. PPPoA is **not** supported.
+
+The following VLANs are available:
+
+| VLAN ID    | Function |
+| -------    | -------- |
+| *untagged* | General PPPoE access |
+| 101        | PPPoE for BT (and related) devices |
 
 ## GPON (Fibre to the Tent)
 
@@ -75,7 +82,7 @@ A table of ONTs that have been tested and confirmed as working can be found belo
 
 When you connect your ONT, it should be automatically provision general internet access on the 1st ethernet interface (untagged)
 
-PPPoE is the prefered method of connecting, but we also support DHCP for a "Plug and Play" experience. PPPoE credentials will be announced closer to the event.
+PPPoE is the prefered method of connecting (see *[PPPoE](#pppoe)*), but we also support DHCP for a "Plug and Play" experience (however, you will receive a CGNAT'ed IP).
 
 ### Configuring your OLT for VoIP
 
@@ -98,3 +105,59 @@ Many of the Huawei ONTs have an "FXS" port that allows you to connect an analogu
 - Dirty connectors can reduce performance. Avoid touching them, and apply dust caps when not in use.
 - SC APC and SC UPC connectors will physically connect, but it can damage them. Avoid mixing connector types / colours.
 - GPON uses lasers. These are at low power levels, but avoid looking directly into any connectors.
+
+## PPPoE
+
+We service the following PPPoE realms (*See below for 'wholesaling'*):
+
+| Realm                   | Public IPv4 | Public IPv6 | Prefix Delegation | CGNAT | 
+| ---------------         | ----------- | ----------- | ----------------- | ----- |
+| `@btinternet.com`       | ✅          | ✅          | ✅                | ❌    |
+| `@btbroadband.com`      | ✅          | ✅          | ✅                | ❌    |
+| `@talktalk.com`         | ✅          | ✅          | ✅                | ❌    |
+| `@service.btclick.com`  | ✅          | ✅          | ✅                | ❌    |
+| `@business.btclick.com` | ✅          | ✅          | ✅                | ❌    |
+| `@cutel.net`            | ✅          | ✅          | ✅                | ❌    |
+| `@firewall.ed`          | ❌          | ❌          | ❌                | ✅    |
+| `@firewalled.net`       | ❌          | ❌          | ❌                | ✅    |
+
+These have been tested to be plug-and-play functional with BT Home Hubs and Business Hubs. Passwords are **not** checked.
+
+CGNAT addresses come out of `100.64.0.0/10`. We'd recommend using these on old, potentially insecure, equipment.
+**We don't** give out static addresses of either type, so expect your IPv6 PD ranges to change. We may be able to advertise & route your prefixes - if you're after this, please give advance notice.
+
+## Wholesale Broadband
+
+This year, we are giving connected users the option of becoming their own ISP.
+This can be done by running an L2TP server and setting the DNS up as follows:
+
+- Create **SRV** records in the format `_l2tp._udp.<YOUR DOMAIN>`
+- Create corresponding **A** records, pointing to your L2TP server(s). AAAA records are **not** accepted.
+- Connect to DSL, Dial-Up or GPON over **PPPoE** as normal, specifying **your domain** as the realm in your username.
+    - For example, you can log in as `youruser@<YOUR DOMAIN>`, where `<YOUR DOMAIN>` is the same as above
+    - **Further authentication** is handled by your server.
+
+### Important Points
+- Your L2TP server **must** listen on port `1701` on a *publicly reachable* IPv4 address.
+- The L2TP secret sent is always `emf2026`
+- Up to **three** SRV records will be load-balanced round-robin.
+
+### <span style="color:red">**Security**</span>
+
+As the shared secret is known, we **strongly** recommend setting up IP access lists for your LNS. L2TP traffic is also plain-text, so choose your authentication schemes carefully. We can offer **IPSec** transport for your L2TP traffic - please let us know with plenty of notice.
+
+Our LAC will have the following IP: `109.95.186.254` (***This is currently subject to change! Please review this as you arrive at EMF***)
+
+### Checking your DNS configuration
+
+<script src="/assets/dnscheck.js"></script>
+
+You can check your DNS configuration using this tool:
+<form action="#" onsubmit="dnscheck(event, this)">
+<label for="realm">Enter your domain (<b>realm</b>) here:</label>
+<input type="text" required minlength="3" maxlength="127" id="realm" name="realm" style="border:1px solid black;" placeholder="Enter Realm">
+<input type="submit" value="Check Domain">
+</form>
+
+<h3 id="dnscheck_err" style="font-weight:bold;color:red;"></h3>
+<div id="dnscheck_results"></div>
