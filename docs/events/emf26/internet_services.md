@@ -84,7 +84,7 @@ When you connect your ONT, it should be automatically provision general internet
 
 PPPoE is the prefered method of connecting (see *[PPPoE](#pppoe)*), but we also support DHCP for a "Plug and Play" experience (however, you will receive a CGNAT'ed IP).
 
-### Configuring your OLT for VoIP
+<!-- ### Configuring your OLT for VoIP
 
 Many of the Huawei ONTs have an "FXS" port that allows you to connect an analogue phone. To use this you will have to manually configure your ONT.
 
@@ -98,6 +98,8 @@ Many of the Huawei ONTs have an "FXS" port that allows you to connect an analogu
   [![Huawei WAN Configuration](images/huawei_onu_voip_wan.png ){ width="400" }](images/huawei_onu_voip_wan.png )
   <figcaption>Huawei WAN Configuration</figcaption>
 </figure>
+
+-->
 
 ### Other notes
 
