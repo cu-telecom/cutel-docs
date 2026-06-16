@@ -6,13 +6,12 @@ nav:
   - Events:
     - 'Electromagnetic Field 2026':
       - events/emf26/index.md
-      # - events/emf26/internet_services.md
       # - 'Advanced GPON': 'events/emf26/gpon_advanced.md'
       - events/emf26/getting_started.md
       - events/emf26/telephones.md
       - events/emf26/faxing.md
-      - events/emf26/dial_up_internet.md
       - events/emf26/viewdata.md
+      - events/emf26/internet_services.md
     - 'Electromagnetic Field 2024':
       - events/emf24/index.md
       - events/emf24/getting_started.md
