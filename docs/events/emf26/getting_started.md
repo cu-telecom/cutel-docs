@@ -30,4 +30,4 @@ Patch your cable by inserting it through the hole in the side of Distribution Po
 
 ### Claim a memorable extension number
 
-Information on how to claim a memorable number is coming soon!
+To claim a memorable number go to [https://phones.emf.camp/](https://phones.emf.camp/)

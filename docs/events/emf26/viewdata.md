@@ -9,7 +9,7 @@ You wil need a Viewdata terminal that supports CEPT3 (As used by Prestel), or yo
 
 ## Numbers
 
-Viewdata numbers coming soon!
+Search for "Viewdata" in the [EMF Phonebook](https://docs.cutel.net/events/emf26/viewdata/) to discover the available services
 
 ## Notes
 

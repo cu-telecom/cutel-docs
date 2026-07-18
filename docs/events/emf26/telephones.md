@@ -17,4 +17,4 @@ Note that many phones require a "Ring Capacitor" which isn't always found in ada
 
 ### Telephone numbers
 
-Coming soon!
+For fun numbers, search the [EMF Phonebook](https://phones.emf.camp/phonebook?type=SERVICE) for "services"

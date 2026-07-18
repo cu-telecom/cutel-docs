@@ -4,4 +4,4 @@ Faxing is fully supported on calls between POTs users. It's less likely to work 
 
 ## Fax Services
 
-We will be offering a number of Fax servives. The numbers will be announced soon!
+To view the available fax services and machines search the [EMF phonebook](https://phones.emf.camp/phonebook?type=FAX) and filter by fax
